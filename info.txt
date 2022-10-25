@@ -1,5 +1,6 @@
 MACHINE
-Sudo is mike, password is linux
+Machine uses Raspbian 32 bits. Sudo is mike, password is the standard
+linux
 
 PATCH
 Pd patch directory/path: /home/mike/Desktop/MECA.pd
