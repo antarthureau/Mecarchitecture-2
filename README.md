@@ -17,12 +17,10 @@ AUTOSTART
 Autostart directory/path: /home/mike/.config/autostart/MECA.desktop
 The autostart is a .desktop file, and is executed using pd
 
----------------
 [Desktop Entry]
 Type=Application
 Name=MECA
 Exec=pd /home/mike/Desktop/MECA.pd
----------------
 
 If the name of the patch is changed during an update,
 it must be changed in the autostart file as well. Example:
