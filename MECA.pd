@@ -1,0 +1,272 @@
+#N canvas 692 119 871 537 12;
+#X obj 288 213 readsf~ 4;
+#X obj 287 341 *~;
+#X obj 315 341 *~;
+#X obj 342 341 *~;
+#X obj 369 341 *~;
+#X msg 535 71 \; pd dsp 1;
+#X obj 288 415 dac~ 1 2 3 4;
+#X obj 499 105 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X obj 499 321 / 127;
+#X obj 499 20 loadbang;
+#X msg 499 71 127;
+#X msg 206 193 1;
+#X msg 308 179 0;
+#X msg 218 136 open /media/mike/MECA-MEDIA/MAIN.WAV;
+#N canvas 0 60 1920 984 vu 0;
+#X obj 111 115 vu 15 120 empty empty -1 -8 0 10 -191407 -262144 1 0
+;
+#X obj 131 115 vu 15 120 empty empty -1 -8 0 10 -191407 -262144 1 0
+;
+#X obj 151 115 vu 15 120 empty empty -1 -8 0 10 -191407 -262144 1 0
+;
+#X obj 171 115 vu 15 120 empty empty -1 -8 0 10 -191407 -1 1 0;
+#N canvas 329 161 625 417 vu 0;
+#X obj 59 129 env~ 1024;
+#X obj 161 111 abs~;
+#X obj 161 213 snapshot~;
+#X obj 161 256 rmstodb;
+#X obj 161 21 inlet~;
+#X obj 161 288 - 100;
+#X obj 59 287 - 100;
+#X obj 59 361 outlet;
+#X obj 161 361 outlet;
+#X text 344 307 Check the help file of env~ and slop~ for more details.
+, f 31;
+#X obj 239 89 expr 1000 / $f1;
+#X floatatom 239 117 5 0 0 0 - - -;
+#X obj 161 146 slop~ 0 0 0 0 1e+09;
+#X obj 239 18 inlet;
+#X floatatom 239 57 5 0 0 0 - - -;
+#X text 359 89 convert to hz;
+#X text 282 118 hz;
+#X text 284 57 peak decay time in ms;
+#X obj 59 171 t f b;
+#X text 345 132 The env~ object is dedicated to RMS analysis. Its output
+is in dB (0-100 range \, pd style) but needs to be converted to dBFS
+(and we do that by simply subtracting 100)., f 31;
+#X text 345 225 The slop~ object is used here for peak detection. We
+need to convert the output to dB with rmstodb and also subtract by
+100 to convert it to dBFS., f 31;
+#X connect 0 0 18 0;
+#X connect 1 0 12 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 3;
+#X connect 12 0 2 0;
+#X connect 13 0 14 0;
+#X connect 14 0 10 0;
+#X connect 18 0 6 0;
+#X connect 18 1 2 0;
+#X restore 84 65 pd vu;
+#N canvas 329 161 625 417 vu 0;
+#X obj 59 129 env~ 1024;
+#X obj 161 111 abs~;
+#X obj 161 213 snapshot~;
+#X obj 161 256 rmstodb;
+#X obj 161 21 inlet~;
+#X obj 161 288 - 100;
+#X obj 59 287 - 100;
+#X obj 59 361 outlet;
+#X obj 161 361 outlet;
+#X text 344 307 Check the help file of env~ and slop~ for more details.
+, f 31;
+#X obj 239 89 expr 1000 / $f1;
+#X floatatom 239 117 5 0 0 0 - - -;
+#X obj 161 146 slop~ 0 0 0 0 1e+09;
+#X obj 239 18 inlet;
+#X floatatom 239 57 5 0 0 0 - - -;
+#X text 359 89 convert to hz;
+#X text 282 118 hz;
+#X text 284 57 peak decay time in ms;
+#X obj 59 171 t f b;
+#X text 345 132 The env~ object is dedicated to RMS analysis. Its output
+is in dB (0-100 range \, pd style) but needs to be converted to dBFS
+(and we do that by simply subtracting 100)., f 31;
+#X text 345 225 The slop~ object is used here for peak detection. We
+need to convert the output to dB with rmstodb and also subtract by
+100 to convert it to dBFS., f 31;
+#X connect 0 0 18 0;
+#X connect 1 0 12 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 3;
+#X connect 12 0 2 0;
+#X connect 13 0 14 0;
+#X connect 14 0 10 0;
+#X connect 18 0 6 0;
+#X connect 18 1 2 0;
+#X restore 134 65 pd vu;
+#N canvas 329 161 625 417 vu 0;
+#X obj 59 129 env~ 1024;
+#X obj 161 111 abs~;
+#X obj 161 213 snapshot~;
+#X obj 161 256 rmstodb;
+#X obj 161 21 inlet~;
+#X obj 161 288 - 100;
+#X obj 59 287 - 100;
+#X obj 59 361 outlet;
+#X obj 161 361 outlet;
+#X text 344 307 Check the help file of env~ and slop~ for more details.
+, f 31;
+#X obj 239 89 expr 1000 / $f1;
+#X floatatom 239 117 5 0 0 0 - - -;
+#X obj 161 146 slop~ 0 0 0 0 1e+09;
+#X obj 239 18 inlet;
+#X floatatom 239 57 5 0 0 0 - - -;
+#X text 359 89 convert to hz;
+#X text 282 118 hz;
+#X text 284 57 peak decay time in ms;
+#X obj 59 171 t f b;
+#X text 345 132 The env~ object is dedicated to RMS analysis. Its output
+is in dB (0-100 range \, pd style) but needs to be converted to dBFS
+(and we do that by simply subtracting 100)., f 31;
+#X text 345 225 The slop~ object is used here for peak detection. We
+need to convert the output to dB with rmstodb and also subtract by
+100 to convert it to dBFS., f 31;
+#X connect 0 0 18 0;
+#X connect 1 0 12 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 3;
+#X connect 12 0 2 0;
+#X connect 13 0 14 0;
+#X connect 14 0 10 0;
+#X connect 18 0 6 0;
+#X connect 18 1 2 0;
+#X restore 184 65 pd vu;
+#N canvas 329 161 625 417 vu 0;
+#X obj 59 129 env~ 1024;
+#X obj 161 111 abs~;
+#X obj 161 213 snapshot~;
+#X obj 161 256 rmstodb;
+#X obj 161 21 inlet~;
+#X obj 161 288 - 100;
+#X obj 59 287 - 100;
+#X obj 59 361 outlet;
+#X obj 161 361 outlet;
+#X text 344 307 Check the help file of env~ and slop~ for more details.
+, f 31;
+#X obj 239 89 expr 1000 / $f1;
+#X floatatom 239 117 5 0 0 0 - - -;
+#X obj 161 146 slop~ 0 0 0 0 1e+09;
+#X obj 239 18 inlet;
+#X floatatom 239 57 5 0 0 0 - - -;
+#X text 359 89 convert to hz;
+#X text 282 118 hz;
+#X text 284 57 peak decay time in ms;
+#X obj 59 171 t f b;
+#X text 345 132 The env~ object is dedicated to RMS analysis. Its output
+is in dB (0-100 range \, pd style) but needs to be converted to dBFS
+(and we do that by simply subtracting 100)., f 31;
+#X text 345 225 The slop~ object is used here for peak detection. We
+need to convert the output to dB with rmstodb and also subtract by
+100 to convert it to dBFS., f 31;
+#X connect 0 0 18 0;
+#X connect 1 0 12 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 3;
+#X connect 12 0 2 0;
+#X connect 13 0 14 0;
+#X connect 14 0 10 0;
+#X connect 18 0 6 0;
+#X connect 18 1 2 0;
+#X restore 234 65 pd vu;
+#X obj 84 27 inlet~;
+#X obj 134 27 inlet~;
+#X obj 184 27 inlet~;
+#X obj 234 27 inlet~;
+#X connect 4 0 0 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 7 0 3 0;
+#X connect 8 0 4 0;
+#X connect 9 0 5 0;
+#X connect 10 0 6 0;
+#X connect 11 0 7 0;
+#X coords 0 -1 1 1 120 150 2 100 100;
+#X restore 405 362 pd vu;
+#X obj 206 103 delay 50;
+#X obj 206 168 delay 50;
+#X obj 206 70 route bang;
+#X obj 206 40 delay 5000;
+#X obj 368 268 print;
+#X obj 206 244 print;
+#X msg 206 218 start;
+#X msg 368 242 stop;
+#X obj 207 366 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 227 366 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 247 366 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 267 366 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 287 381 *~;
+#X obj 315 381 *~;
+#X obj 342 381 *~;
+#X obj 369 381 *~;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+#X connect 0 3 4 0;
+#X connect 0 4 17 0;
+#X connect 0 4 22 0;
+#X connect 1 0 14 0;
+#X connect 1 0 27 0;
+#X connect 2 0 14 1;
+#X connect 2 0 28 0;
+#X connect 3 0 14 2;
+#X connect 3 0 29 0;
+#X connect 4 0 14 3;
+#X connect 4 0 30 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 1;
+#X connect 8 0 2 1;
+#X connect 8 0 3 1;
+#X connect 8 0 4 1;
+#X connect 9 0 5 0;
+#X connect 9 0 10 0;
+#X connect 9 0 18 0;
+#X connect 10 0 7 0;
+#X connect 11 0 0 0;
+#X connect 11 0 21 0;
+#X connect 12 0 0 0;
+#X connect 13 0 0 0;
+#X connect 15 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 11 0;
+#X connect 17 0 15 0;
+#X connect 18 0 17 0;
+#X connect 21 0 20 0;
+#X connect 22 0 19 0;
+#X connect 23 0 27 1;
+#X connect 24 0 28 1;
+#X connect 25 0 29 1;
+#X connect 26 0 30 1;
+#X connect 27 0 6 0;
+#X connect 28 0 6 1;
+#X connect 29 0 6 2;
+#X connect 30 0 6 3;
