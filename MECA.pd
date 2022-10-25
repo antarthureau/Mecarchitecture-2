@@ -1,4 +1,4 @@
-#N canvas 692 119 871 537 12;
+#N canvas 411 383 871 537 12;
 #X obj 288 213 readsf~ 4;
 #X obj 287 341 *~;
 #X obj 315 341 *~;
@@ -216,18 +216,13 @@ need to convert the output to dB with rmstodb and also subtract by
 #X obj 206 244 print;
 #X msg 206 218 start;
 #X msg 368 242 stop;
-#X obj 207 366 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 227 366 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 247 366 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 267 366 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 287 381 *~;
-#X obj 315 381 *~;
-#X obj 342 381 *~;
-#X obj 369 381 *~;
+#X obj 677 118 osc~ 440;
+#X obj 677 143 *~;
+#X obj 677 188 dac~ 1 2 3 4;
+#X obj 742 124 line~;
+#X obj 759 57 delay 10;
+#X msg 742 32 0 \, 0.5 10;
+#X msg 759 82 0.5 \, 0 190;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 0 2 3 0;
@@ -235,13 +230,13 @@ need to convert the output to dB with rmstodb and also subtract by
 #X connect 0 4 17 0;
 #X connect 0 4 22 0;
 #X connect 1 0 14 0;
-#X connect 1 0 27 0;
+#X connect 1 0 6 0;
 #X connect 2 0 14 1;
-#X connect 2 0 28 0;
+#X connect 2 0 6 1;
 #X connect 3 0 14 2;
-#X connect 3 0 29 0;
+#X connect 3 0 6 2;
 #X connect 4 0 14 3;
-#X connect 4 0 30 0;
+#X connect 4 0 6 3;
 #X connect 7 0 8 0;
 #X connect 8 0 1 1;
 #X connect 8 0 2 1;
@@ -250,6 +245,8 @@ need to convert the output to dB with rmstodb and also subtract by
 #X connect 9 0 5 0;
 #X connect 9 0 10 0;
 #X connect 9 0 18 0;
+#X connect 9 0 27 0;
+#X connect 9 0 28 0;
 #X connect 10 0 7 0;
 #X connect 11 0 0 0;
 #X connect 11 0 21 0;
@@ -262,11 +259,12 @@ need to convert the output to dB with rmstodb and also subtract by
 #X connect 18 0 17 0;
 #X connect 21 0 20 0;
 #X connect 22 0 19 0;
-#X connect 23 0 27 1;
-#X connect 24 0 28 1;
-#X connect 25 0 29 1;
-#X connect 26 0 30 1;
-#X connect 27 0 6 0;
-#X connect 28 0 6 1;
-#X connect 29 0 6 2;
-#X connect 30 0 6 3;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 24 0 25 1;
+#X connect 24 0 25 2;
+#X connect 24 0 25 3;
+#X connect 26 0 24 1;
+#X connect 27 0 29 0;
+#X connect 28 0 26 0;
+#X connect 29 0 26 0;
