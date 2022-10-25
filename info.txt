@@ -4,6 +4,8 @@ linux
 
 PATCH
 Pd patch directory/path: /home/mike/Desktop/MECA.pd
+puredata vanilla + GUI should be installed on the machine.
+No externals are required.
 
 MEDIA
 MEDIA-MECA directory/path: /home/media/mike/MECA-MEDIA
