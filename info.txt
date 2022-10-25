@@ -1,11 +1,16 @@
-MACHINE
-Machine uses Raspbian 32 bits. Sudo is mike, password is the standard
-linux
+MACHINE-SETUP
+Machine is a RPi 2 B+ or 3 B+, using Raspbian 32 bits.
+Sudo is mike, password is the standard linux
+A USB flash drive (MECA-MEDIA) should be inserted.
+An ESI GIGAPORT eX should be connected via USB.
 
 PATCH
 Pd patch directory/path: /home/mike/Desktop/MECA.pd
 puredata vanilla + GUI should be installed on the machine.
 No externals are required.
+At startup the patch should generate a short "beep" on all 4 channels.
+5 seconds after the beep, MAIN.WAV will start, and loop until
+the machine is off.
 
 MEDIA
 MEDIA-MECA directory/path: /home/media/mike/MECA-MEDIA
