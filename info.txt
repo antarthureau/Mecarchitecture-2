@@ -12,26 +12,38 @@ At startup the patch should generate a short "beep" on all 4 channels.
 5 seconds after the beep, MAIN.WAV will start, and loop until
 the machine is off.
 
-MEDIA
+MESIA
 MEDIA-MECA directory/path: /home/media/mike/MECA-MEDIA
 The media file (MAIN.WAV) is located on a flashdrive (MECA-MEDIA)
 To update the file, simply put another 44.1/16 4 channels MAIN.WAV
-on the MECA-MEDIA flashdrive
+on the MECA-MEDIA flashdrive;
+If the power supply of the Pi is interrupted suddenly
+it is possible that /media/mike/ will conserve a corrupted directory at reboot
+see AUTOSTART to read more on how to fix that issue;
 
 UPDATE
 The patch can be updated via SSH or desktop
 
 AUTOSTART
 Autostart directory/path: /home/mike/.config/autostart/MECA.desktop
-The autostart is a .desktop file
-
+The autostart is a .desktop file, containting a bash script
 ---------------
 [Desktop Entry]
 Type=Application
 Name=MECA
-Exec=pd /home/mike/Desktop/MECA.pd
+Exec=bash /home/mike/Desktop/autostartMECA.sh
+---------------
+
+The bash script takes care of removing any corrupted, empty directories in /media/mike/
+sleeps 2 seconds before opening the Pd patch;
+---------------
+#bin!/bash
+cd /media/mike
+sudo find . -type d -empty -print -delete
+sleep 2
+pd home/mike/Desktop/MECA.pd
 ---------------
 
 If the name of the patch is changed during an update,
-it must be changed in the autostart file as well. Example:
-Exec= pd /home/mike/Desktop/newPatch.pd
+it must be changed in the bash script as well. Example:
+pd /home/mike/Desktop/newPatch.pd
