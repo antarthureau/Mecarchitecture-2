@@ -22,7 +22,8 @@ it is possible that /media/mike/ will conserve a corrupted directory at reboot
 see AUTOSTART to read more on how to fix that issue;
 
 UPDATE
-The patch can be updated via SSH or desktop
+The patch can be updated via SSH or desktop;
+SSH is activated, IP address of the ethernet port is 169.254.13.70;
 
 AUTOSTART
 Autostart directory/path: /home/mike/.config/autostart/MECA.desktop
