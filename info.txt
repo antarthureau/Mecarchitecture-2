@@ -25,4 +25,29 @@ UPDATE
 The patch can be updated via SSH or desktop;
 SSH is activated, IP address of the ethernet port is 169.254.13.70;
 
-x
+AUTOSTART
+Autostart directory/path: /home/mike/.config/autostart/meca.desktop
+The autostart .desktop file, starts a bash script deleting empty /media/mike locations;
+and launches the patch.
+---------------
+[Desktop Entry]
+Type=Application
+Name=MECA
+Exec=bash /home/mike/Desktop/autostartMECA.sh
+---------------
+
+The bash script takes care of removing any corrupted, empty directories in /media/mike/;
+then launches the app
+---------------
+#!/bin/bash
+cd /media/mike
+sudo find . -type d -empty -print -delete
+sleep 2
+pd /home/mike/Desktop/MECA.pd
+---------------
+
+If the name of the patch is changed during an update,
+it must be changed in the bash script as well. Example:
+pd /home/mike/Desktop/newPatch.pd
+
+The bash script is located on the desktop.
